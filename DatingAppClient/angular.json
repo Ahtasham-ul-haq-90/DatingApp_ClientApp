@@ -68,6 +68,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options" : {
+              "sslKey": "./SSL/ssl.key",
+              "sslCert": "./SSL/ssl.cst",
+              "ssl": true
+            },
           "configurations": {
             "production": {
               "browserTarget": "DatingAppClient:build:production"
@@ -75,6 +80,7 @@
             "development": {
               "browserTarget": "DatingAppClient:build:development"
             }
+            
           },
           "defaultConfiguration": "development"
         },
