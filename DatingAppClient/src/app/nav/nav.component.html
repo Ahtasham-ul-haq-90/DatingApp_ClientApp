@@ -12,7 +12,7 @@
        <div class="d-flex justify-content-between w-100 align-items-center">
 
       <div>
-      <ul class="navbar-nav mb-2 mb-md-0" *ngIf="isloggedin">
+      <ul class="navbar-nav mb-2 mb-md-0" *ngIf="accountService.currentUser$| async">
         <li class="nav-item">
           <a class="nav-link active" href="#">Matches</a>
         </li>
@@ -28,7 +28,7 @@
       </ul>
     </div>
      <div class="d-flex align-items-center">
-      <div class="dropdown" *ngIf="isloggedin" dropdown>
+      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
         <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
         <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item">Edit profile</a>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <!-- Right side search form -->
-      <form *ngIf="!isloggedin" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+      <form *ngIf="(accountService.currentUser$| async) === null" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
         <input
           name="UserName"
           [(ngModel)]="model.UserName"
