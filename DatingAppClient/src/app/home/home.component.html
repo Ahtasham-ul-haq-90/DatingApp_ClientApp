@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="container mt-5">
+    <div *ngIf="registermode" style="text-align: center;">
+        <h1>Find your soul soul mate</h1>
+        <p class="lead"> Come on in the view your matches.. all you need to do is sign up!</p>
+        <div class="text-center">
+            <button (click)="RegisterUser()" class="btn btn-primary btn-lg mr-2">Register</button>
+            <button class="btn btn-info btn-lg mr-2">Learn more</button>
+        </div>
+    </div>
+
+
+    <div *ngIf="!registermode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4 mt-5">
+                <p>
+                    Register Form goes here
+                </p>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <button (click)="RegisterUser()" class="btn btn-info btn-lg mr-2">Go back</button>
+        </div>
+
+    </div>
+</div>
