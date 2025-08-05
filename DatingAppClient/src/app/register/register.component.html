@@ -1,1 +1,19 @@
-<p>register works!</p>
+<div class="container td-flex align-items-center mt-4">
+    <form #registrationForm="ngForm" class="justify-content-center" (submit)="RegisterUser()">
+        <img class="mb-4 ml-5" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="form-floating">
+            <input type="text" name="UserName"  [(ngModel)]="model.UserName" class="form-control mb-3 " id="UserName" placeholder="User name">
+        </div>
+        <div class="form-floating">
+            <input type="email" name="Email"  [(ngModel)]="model.Email" class="form-control mb-3 " id="Email" placeholder="Email">
+        </div>
+        <div class="form-floating">
+            <input type="password" name="Password"  [(ngModel)]="model.Password " class="form-control mb-3 " id="Password" placeholder="Password">
+        </div>
+        <div class="row justify-content-center mt-4">
+            <button class="btn btn-primary py-2 mr-2" type="submit">Sign up</button>
+            <button class="btn btn-info  py-2" (click)="Cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

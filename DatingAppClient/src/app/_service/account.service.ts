@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {map} from 'rxjs/operators'
-import { User } from '../_models/User';
+import { User } from '../_models/user';
 import { ReplaySubject } from 'rxjs';
 
 @Injectable({
@@ -30,5 +30,19 @@ setCurrentUser(user: User){
   logout(){
     localStorage.removeItem('user');
      this.currentUserSource.next(null);
+  }
+
+
+  RegisterUser(model:any){
+    return this.http.post<User>(this.baseUrl + '/register',model).pipe(
+      map((response:User) =>{
+       const user = response;
+       if(user) {
+        localStorage.setItem('user',JSON.stringify(user));
+        this.currentUserSource.next(user);
+       }
+       return user;
+      })
+    )
   }
 }
